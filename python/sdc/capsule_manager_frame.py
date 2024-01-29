@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import base64
+import json
 import grpc
 
 from dataclasses import dataclass
@@ -178,6 +179,17 @@ class CapsuleManagerFrame(object):
 
         if not self.sim:
             from sdc.ual import ual
+            report = response.attestation_report
+
+            if report.str_report_type != "JD":
+                raise CapsuleManagerError(-1, "str_report_type is not JD")
+            report.str_report_type = ""
+            dcap_report = {
+                "b64_quote": report.json_report,
+                "json_collateral": "",
+            }
+            json_report = json.dumps(dcap_report)
+            report.json_report = json_report
             
             policy = ual_pb2.UnifiedAttestationPolicy()
             rule = policy.main_attributes.add()
@@ -189,7 +201,7 @@ class CapsuleManagerFrame(object):
                 response.cert.encode("utf-8"), request.nonce.encode("utf-8")
             )
             rule.hex_user_data = tool.to_upper_hex(user_data)
-            ual.verify_report(response.attestation_report, policy)
+            ual.verify_report(report, policy)
 
         cert = x509.load_pem_x509_certificate(response.cert.encode("utf-8"))
         return cert.public_key().public_bytes(

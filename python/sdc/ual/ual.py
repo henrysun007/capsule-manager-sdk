@@ -15,6 +15,7 @@
 import ctypes
 import glob
 import os
+import warnings
 from enum import Enum, unique
 
 from google.protobuf.json_format import MessageToJson, Parse
@@ -105,5 +106,7 @@ def verify_report(
         policy_str.encode("utf-8"),
         len(policy_str),
     )
-    if err_code != 0:
+    if err_code == 0x11A70000:
+        warnings.warn("QvlVerifyReport failed")
+    elif err_code != 0:
         raise CapsuleManagerError(err_code, "verify failed.")

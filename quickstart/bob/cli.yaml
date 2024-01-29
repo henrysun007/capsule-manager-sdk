@@ -1,0 +1,130 @@
+host: "172.17.0.1:8888"
+mr_enclave: "E232EBE536CF48676121550D574542EC11A9D8AED44E00927CFB121318A6B58E"
+sim: false
+root_ca_file: null
+private_key_file: null
+# List[str], cert chain file
+cert_chain_file: null
+
+common:
+  # str
+  party_id: "VHAI6N4CQ725FD2BM3WDFOINURWWRLVLUEPMC4MS7G7BHFCACOJA"
+  # List[str], cert chain file
+  cert_pems_file:
+    - bob.crt
+  # str
+  scheme: "RSA"
+  # file contains private key
+  private_key_file: bob.key
+
+get_data_keys:
+  # str
+  initiator_party_id:
+  # str
+  scope:
+  # str
+  op_name:
+  # List[str]
+  resource_uris:
+  # json-format string
+  env:
+  # json-format string
+  global_attrs:
+  # List[List[str]]
+  columns:
+  # List[str]
+  attrs:
+
+register_data_keys:
+  # List[str]
+  resource_uris:
+    - breast_cancer_bob
+  # List[bytes]
+  data_key_b64s:
+    - Xq2zzyvQy8kbROxN1PyZvg== 
+
+get_data_policys:
+  # str
+  scope:
+
+register_data_policy:
+  # str
+  scope: default
+  # str
+  data_uuid: breast_cancer_bob
+  # List[str]
+  rule_ids:
+  - bob_rule
+  # List[List[str]]
+  grantee_party_ids:
+    -
+      # tee
+      - MHZJN5NRDNT2WTVTQID33D5ENX6W4PFT2T52WE4DHYQ6QDBZ5DCA
+      # alice
+      - VUF4VRNK6NEGC7Z6FV27JMTOG2P6L4QUFC2YX6XTSYMBO7IPGQVA
+  # List[List[str]]
+  columns:
+  -
+      - id
+      - mean compactness 
+      - mean concavity
+      - mean concave points
+      - mean symmetry
+      - mean fractal dimension
+      - target
+  # List[List[str]]
+  global_constraints:
+  # List[List[str]]
+  op_constraints_name:
+    -
+      - OP_PSI
+      - OP_DATASET_SPLIT
+      - OP_XGB
+      - OP_PREDICT
+      - OP_BICLASSIFIER_EVALUATION
+  # List[List[List[str]]]
+  op_constraints_body:
+
+delete_data_policy:
+  # str
+  scope:
+  # str
+  data_uuid:
+
+add_data_rule:
+  # str
+  scope:
+  # str
+  data_uuid:
+  # str
+  rule_id:
+  # List[str]
+  grantee_party_ids:
+  # List[str]
+  columns:
+  # List[str]
+  global_constraints:
+  # List[str]
+  op_constraints_name:
+  # List[List[str]]
+  op_constraints_body:
+
+delete_data_rule:
+  # str
+  scope:
+  # str
+  data_uuid:
+  # str
+  rule_id:
+
+get_export_data_key:
+  # str
+  party_id:
+  # str
+  resource_uri:
+  # str
+  data_export_certificate_file:
+
+delete_data_key:
+  # str
+  resource_uri:

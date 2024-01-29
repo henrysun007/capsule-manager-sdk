@@ -1,0 +1,25 @@
+vote_request:
+  vote_request_id: ""
+  type: TEE_DOWNLOAD
+  initiator: ""
+  vote_counter: ""
+  voters:
+    - ""
+  executors:
+    - ""
+  approved_threshold: 1
+  approved_action: "tee/download,join_uuid"
+  rejected_action: ""
+  cert_chain_file:
+    - alice.crt
+  private_key_file: alice.key
+  vote_request_signature:
+
+vote_invite:
+  -
+    vote_request_id: ""
+    voter: bob 
+    action: APPROVE
+    cert_chain_file:
+      - ../bob/bob.crt
+    voter_signature: "I+zqRmJv+6XuDR5fGOkVt/bFZKWo0T9Rkk4rXxgaLuLvBqdCs6c41Hl28E2G4JaIRX6I1h1uopUtJIoftZXYVSc/JJRnujhDA1/xWguUSM4BKriUssAHM7PSPDPqipOuV5RxJURtBpi9+QZqx/iadkQjgqTZbewGVarWeKyJQmsexgdkVeGX2WMvPRHFCL/x8tceMU9ASq6xyJf7C0wZrRkVoF2gNcOGQ3xBmNlfCPl0z/ZJ2Uc3j779YSv73pN454zKDTjZcv73+BaK7Gmy/qS+Mq5dQsTrt6ShdI5IZgz9flMIeD5qFSamKmiEu8LCN7mQHBNp9WD6FhRzU3Csc7vjacCx81A31YYsYKk6o9jMmcQpVbWeJzi2Q5ZY3lIW3xnndNijkCZzl1+6PS1+f06q78v5rGdho5HJurLk/+WnqVnGHJJ9EBZ6WhOkzTRdl2Mcf242YJfZ1W+k3v0yXA+lJSQxS0AXxhB0Gptwbr11f4vpIPtfn1GuDiALkP94"

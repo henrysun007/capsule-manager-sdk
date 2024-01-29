@@ -73,6 +73,8 @@ register_data_policy:
       - mean smoothness
   # List[List[str]]
   global_constraints:
+  -
+      - r.env.tee.sgx.mr_enclave=="f9f671a397e5efe46188628da7b0829e7d42ace73ab5b97de7286a1f04b29f1a"
   # List[List[str]]
   op_constraints_name:
     -
